@@ -17,23 +17,19 @@ namespace CH_CW2_PP_APP
         const int MAX = 21200;
         const int SHIFT = 3;
         const string path = @"C:\Users\tama0\source\repos\CH_CW2_PP_APP\CH_CW2_PP_APP\words.txt";
-        
-        private static int AskWordCount()
+
+        private static int getWordCountFromArgs()
         {
-            /// <summary>
-            /// Ask word count using stdio.
-            /// </summary>
-            /// 
-            /// <returns>positive int</returns>
-            while (true)
+            string countString;
+            if (Environment.GetCommandLineArgs()[2] == "-s")
             {
-                Console.Write("== Choose Word Count ==\n-1: Max\n=> ");
-                string? answer = Console.ReadLine();
-                if (answer == null || answer == "0") continue;
-                else if (answer == "-1") return MAX;
-                else return Int32.Parse(answer);
+                countString = Environment.GetCommandLineArgs()[3];
             }
-            
+            else
+            {
+                countString = Environment.GetCommandLineArgs()[4];
+            }
+            return int.Parse(countString);
         }
 
         private static string RandomString(int length)
@@ -54,7 +50,7 @@ namespace CH_CW2_PP_APP
 
         private static List<string> GenerateRandomStrings()
         {
-            int count = AskWordCount();
+            int count = getWordCountFromArgs();
             List<string> strings = new List<string>();
             for (int i = 0; i < count; i++)
             {
@@ -73,7 +69,7 @@ namespace CH_CW2_PP_APP
             /// <returns>string list</returns>
 
             List<string> strings = new List<string>();
-            int count = AskWordCount();
+            int count = getWordCountFromArgs();
             foreach (string line in File.ReadLines(path))
             {
                 strings.Add(line);

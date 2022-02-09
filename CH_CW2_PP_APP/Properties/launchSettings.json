@@ -1,0 +1,23 @@
+{
+  "profiles": {
+    "CH_CW2_PP_APP": {
+      "commandName": "Project"
+    },
+    "test 4core 1000000": {
+      "commandName": "Project",
+      "commandLineArgs": "-t -m 4 1000000"
+    },
+    "test 8core 1000000": {
+      "commandName": "Project",
+      "commandLineArgs": "-t -m 8 1000000"
+    },
+    "test 2core 1000000": {
+      "commandName": "Project",
+      "commandLineArgs": "-t -m 2 1000000"
+    },
+    "test single 1000000": {
+      "commandName": "Project",
+      "commandLineArgs": "-t -s 1000000"
+    }
+  }
+}
